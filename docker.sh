@@ -27,7 +27,7 @@ docker container restart $CONTAINER
 echo "Updating '/var/www' folder ownership"
 docker exec -ti $CONTAINER /bin/bash -c 'chown -R www-data:www-data /var/www'
 
-echo "Started Scuessfully!"
+echo "Started Successfully!"
 echo "──────────────────────────────────────────────────────"
 
 echo "Tailing logs"
