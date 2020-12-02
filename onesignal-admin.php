@@ -407,8 +407,10 @@ class OneSignal_Admin
       'notification_title',
       'custom_manifest_url',
       'persist_notifications',
-    );
+        );
+        error_log(print_r($config['notifyButton_tip_state_blocked']));
         OneSignal_Admin::saveStringSettings($onesignal_wp_settings, $config, $stringSettings);
+        error_log(print_r($onesignal_wp_settings['notifyButton_tip_state_blocked']));
 
         OneSignal::save_onesignal_settings($onesignal_wp_settings);
 
@@ -429,6 +431,7 @@ class OneSignal_Admin
     public static function saveStringSettings(&$onesignal_wp_settings, &$config, $settings)
     {
         foreach ($settings as $setting) {
+            $value = $config[$setting];
             if ($setting === 'app_rest_api_key') {
                 // Only save key if the value has been changed.
                 // This prevents its masked value from becoming the value saved to the DB
